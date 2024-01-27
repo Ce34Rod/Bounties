@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+    <meta charset="UTF-8"/>
+    <title th:text="">Bounties</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div th:fragment="header">
+    <header>
+        <div class="company-name">Lancer's Fitness App</div>
+        <nav>
+            <ul class="nav">
+                <li class="nav-item1"><a th:href="@{/account}">Account Management</a></li>
+                <li class="nav-item2"><a th:href="@{/workout-plans}">Workout Plans</a></li>
+                <li class="nav-item3"><a th:href="@{/search-exercises}">Search Exercises</a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<div th:fragment="top-bar" class="top-bar">
+    <h1>Lancer's Fitness</h1>
+    <div class="account-actions">
+        <a th:href="@{/userExercises}" class="btn btn-info">User Exercises</a>
+        <a th:href="@{/dashboard}" class="btn btn-info">Dashboard</a>
+        <a th:href="@{/account}" class="btn btn-info">Manage Account</a>
+        <a th:href="@{/logout}" class="btn btn-danger">Logout</a>
+    </div>
+</div>
+
+<div th:fragment="mini-guide" class="mini-guide">
+    <a th:href="@{/records/index}" class="mini-guide-entry">Records</a>
+    <a class="mini-guide-entry" th:href="@{/workouts/index}" >Workouts</a>
+    <a class="mini-guide-entry" th:href="@{/search}" >Exercise Search</a>
+</div>
+<div th:fragment="footer">
+    <footer class="footer">
+        Ⓒ Lancers Fitness 2023
+    </footer>
+</div>
+</body>
+
+</html>
+

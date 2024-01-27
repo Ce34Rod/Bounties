@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}">
+</head>
+<body>
+<div class="form-container">
+    <h2>Your Form</h2>
+    <!-- Your form elements go here -->
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      document.querySelector(".form-container").style.display = "block";
+    });
+</script>
+</body>
+</html>
