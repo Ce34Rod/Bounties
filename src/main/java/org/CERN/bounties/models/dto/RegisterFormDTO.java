@@ -8,7 +8,7 @@ import jakarta.validation.constraints.Size;
 public class RegisterFormDTO extends LoginFormDTO{
 
     @NotNull
-    @NotBlank
+    @NotBlank(message = "Password is required")
     @Size(min = 5, max = 20, message = "Password must be between 5 and 20 characters.")
     private String verifyPassword;
 
