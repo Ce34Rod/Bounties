@@ -1,4 +1,4 @@
 package org.CERN.bounties.controllers;
 
-public class bountyController {
+public class BountyController {
 }
