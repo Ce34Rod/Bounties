@@ -1,5 +1,6 @@
 package org.CERN.bounties.controllers;
 
+import jakarta.validation.Valid;
 import org.CERN.bounties.models.User;
 import org.CERN.bounties.models.data.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +26,10 @@ public class StarterPageController {
     }
 
     @PostMapping("/")
-    public String passName(@ModelAttribute User user) {
+    public String passName(@ModelAttribute @Valid User user) {
 
-        User savedUser = userRepository.save(new User(user.getName()));
+        userRepository.save(user);
+        User savedUser = user;
 
         if (savedUser != null) {
             System.out.println("Saved user to database");
@@ -41,6 +43,14 @@ public class StarterPageController {
         } else {
             System.out.println("Failed to retrieve user object from database");
         }
-        return "starterPage";
+        return "welcome";
+    }
+
+    @GetMapping("/welcome")
+    public String welcomeHunter(Model model){
+
+
+
+        return "welcome";
     }
 }
