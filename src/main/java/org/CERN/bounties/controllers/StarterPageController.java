@@ -22,15 +22,15 @@ public class StarterPageController {
     private UserRepository userRepository;
 
 
-    @GetMapping("/")
+    @GetMapping("/newUser")
     public String writeName(Model model) {
         model.addAttribute(new User());
         {
-            return "starterPage";
+            return "newUser";
         }
     }
 
-    @PostMapping("/")
+    @PostMapping("/newUser")
     public String passName(@ModelAttribute @Valid User user, HttpServletResponse response) {
 
         userRepository.save(user);
