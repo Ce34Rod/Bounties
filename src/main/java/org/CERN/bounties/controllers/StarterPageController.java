@@ -1,6 +1,7 @@
 package org.CERN.bounties.controllers;
 
 import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import org.CERN.bounties.models.User;
@@ -60,11 +61,18 @@ public class StarterPageController {
     }
 
     @GetMapping("/welcome")
-    public String welcomeHunter(Model model, @RequestParam("username") String username, HttpServletResponse response){
+    public String welcomeHunter(Model model, @RequestParam("username") String username, HttpServletRequest request){
 
 
         Optional<User> user = userRepository.findById(3);
         model.addAttribute("name", username);
+
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                System.out.println(cookie.getName() + cookie.getValue() + cookie.getDomain() + cookie.getPath() + cookie.getMaxAge());
+            }
+        }
 
 
         return "welcome";
